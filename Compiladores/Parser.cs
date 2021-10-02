@@ -29,7 +29,6 @@ namespace Compiladores
                 default:
                     break;
             }
-            MatchToken(TokenType.EOF);
             return Answer;
         }
 
@@ -97,7 +96,7 @@ namespace Compiladores
                 case TokenType.Number:
                     return +M();
                 case TokenType.Minus:
-                    MatchToken(TokenType.Minus);
+                    _token = _scanner.GetToken();
                     return -F();
                 default:
                     throw new Exception("Error");
